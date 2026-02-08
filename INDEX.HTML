@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Aviso de Stock - Papel Troquelado</title>
+
+  <style>
+
+    body, html {
+
+      margin: 0;
+
+      padding: 0;
+
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+      display: flex;
+
+      justify-content: center;
+
+      align-items: center;
+
+      height: 100vh;
+
+      background-color: #f4f6f9;
+
+    }
+
+    .container {
+
+      text-align: center;
+
+      padding: 2rem;
+
+      background: #ffffff;
+
+      border-radius: 12px;
+
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+
+      width: 90%;
+
+      max-width: 400px;
+
+    }
+
+    h1 {
+
+      color: #d83b01; /* Color naranja de alerta/Outlook */
+
+      font-size: 1.5rem;
+
+      margin-bottom: 20px;
+
+    }
+
+    p {
+
+      font-size: 1rem;
+
+      color: #333;
+
+      margin-bottom: 30px;
+
+      line-height: 1.5;
+
+    }
+
+    button {
+
+      padding: 15px 20px;
+
+      font-size: 1.1rem;
+
+      font-weight: 600;
+
+      color: white;
+
+      background-color: #0078d4; /* Azul Outlook */
+
+      border: none;
+
+      border-radius: 8px;
+
+      cursor: pointer;
+
+      transition: background 0.3s ease;
+
+      width: 100%;
+
+    }
+
+    button:hover {
+
+      background-color: #005a9e;
+
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+
+
+  <div class="container">
+
+    <h1>Alerta de Stock</h1>
+
+    <p>Se ha detectado que el <strong>papel troquelado</strong> está por debajo del límite.</p>
+
+    <button id="enviarAviso">Notificar Pedido a Outlook</button>
+
+  </div>
+
+
+
+  <script>
+
+    document.getElementById('enviarAviso').onclick = () => {
+
+      const destinatario = "cocinars@glocoquality.com";
+
+      const asunto = "REPOSICIÓN: Stock bajo de papel troquelado";
+
+      
+
+      // El mensaje que pediste
+
+      const cuerpo = "Quedan menos del limite de stock de papel troquelado. Por favor Pidelo y responde a este correo una vez esté pedido. Gracias.";
+
+
+
+      // Construcción del enlace mailto
+
+      // encodeURIComponent se encarga de que los espacios y tildes funcionen bien
+
+      const mailtoUrl = `mailto:${destinatario}?subject=${encodeURIComponent(asunto)}&body=${encodeURIComponent(cuerpo)}`;
+
+      
+
+      // Intenta abrir la app de correo local
+
+      window.location.href = mailtoUrl;
+
+    };
+
+  </script>
+
+
+
+</body>
+
+</html>
